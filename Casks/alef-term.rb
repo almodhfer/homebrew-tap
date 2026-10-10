@@ -8,16 +8,15 @@ cask "alef-term" do
   homepage "https://github.com/almodhfer/alef-term"
 
   depends_on arch: :arm64
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
 
   app "Alef.app"
   binary "#{appdir}/Alef.app/Contents/MacOS/alef-term"
 
   # The app is not signed with an Apple developer certificate, so clear the
   # download flag that would otherwise make macOS refuse to open it.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Alef.app"]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Alef.app"]
   end
 
   zap trash: "~/.config/alef-term"
