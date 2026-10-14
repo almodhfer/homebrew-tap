@@ -1,6 +1,6 @@
 cask "alef-term" do
-  version "0.1.3"
-  sha256 "f05f9da46662e3e630d6f4022929505baf4e2b4532f07c70c968907c23538808"
+  version "0.1.4"
+  sha256 "405be7bc1d6a88412ed1ccaad598f174d1d33c7695a74435b6a64d966688ce79"
 
   url "https://github.com/almodhfer/alef-term/releases/download/v#{version}/Alef-v#{version}-macos-arm64.zip"
   name "Alef"
